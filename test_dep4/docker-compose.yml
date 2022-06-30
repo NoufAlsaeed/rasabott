@@ -1,0 +1,45 @@
+version: '3.0' 
+ 
+services:
+  chatbot_ui:
+      container_name: "chatbot_ui"
+      build: 
+        context: frontend
+      ports:
+        - 3000:3000
+
+        
+  rasa:
+    container_name: rasa_server
+    user: root
+    # go to docker hub/rasa changelog to see what version and flavour of rasa that you want
+    #Map port 5005 of local machine to 5005 of container
+    build: 
+        context:  .
+    ports:
+      - 5005:5005
+    # This command will copy everything in current directory to the /app directory in the container 
+    volumes:
+      - ./:/app
+
+
+  action_server:
+      container_name: action_server
+      build: 
+        context: actions
+      volumes:
+        - ./actions:/app/actions
+      ports:
+        - 5055:5055
+  
+  # nginx:
+  #     container_name: "nginx"
+  #     image: nginx
+  #     depends_on: 
+  #       - rasa
+  #       - action_server
+  #       - chatbot_ui
+  #     volumes:
+  #       - ./nginx.conf:/etc/nginx/nginx.conf
+  #     ports:
+  #       - 80:80

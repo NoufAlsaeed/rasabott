@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rasa-custom-model
+  labels:
+    app: rasa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rasa
+  template:
+    metadata:
+      labels:
+        app: rasa
+    spec:
+      containers:
+      - name: rasa-os-img
+        image: naaz22/rasa-test:rasaos
+        ports:
+          - containerPort: 5005
+        command: ["rasa", "run", "--enable-api","--cors","*","--port", "5005", "--debug"]
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rasa-web
+spec:
+  ports:
+    - port: 5005
+      targetPort: 5005
+  selector:
+    app: rasa
+  type: LoadBalancer

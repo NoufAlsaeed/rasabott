@@ -1,0 +1,134 @@
+<html>
+<head>
+ 
+  <style>
+  /*#1f83e0*/
+  /*03a5fc*/
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300&display=swap');
+  .rw-conversation-container {
+      display:block;
+      font-family: 'Tajawal', sans-serif;
+      background: rgb(6,119,142);
+      background: linear-gradient(90deg, rgba(6,119,142,1) 37%, rgba(117,143,78,1) 100%);
+    }
+
+    .rw-conversation-container .rw-replies {
+        font-family: 'Tajawal', sans-serif;
+
+       display:inline-block;
+        /* !important;    */
+    }
+    .rw-conversation-container .rw-reply{
+        font-family: 'Tajawal', sans-serif;
+
+        display:block;
+        text-align: center;
+        background: #0c90ab !important;
+        border-color: #0c90ab !important;
+        border-style: none;
+    }
+
+  .rw-conversation-container .rw-header {
+      font-family: 'Tajawal', sans-serif;
+      /* background-color: #1f83e0 !important; */
+      background: rgb(6,119,142);
+      background: linear-gradient(90deg, rgba(6,119,142,1) 37%, rgba(117,143,78,1) 100%);
+      direction: rtl;
+      justify-content: right;
+    }
+
+    .rw-conversation-container .rw-close-function {
+      background: rgb(6,119,142);
+      background: linear-gradient(90deg, rgba(6,119,142,1) 37%, rgba(117,143,78,1) 100%);
+    }
+
+    /* .rw-launcher{
+     /* background-color: #1f83e0 !important; 
+      #246aaa
+      #06778e
+    } */
+    .rw-conversation-container .rw-client {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #0c90ab !important;
+    }
+    .rw-conversation-container .rw-header .rw-title{
+      font-family: 'Tajawal', sans-serif;
+      color: #ffffff !important;
+      text-align: right;
+      direction: rtl;
+      justify-content: right;
+
+    }
+
+    .rw-conversation-container .rw-header .rw-subtitle{
+      font-family: 'Tajawal', sans-serif;
+      color: #ffffff !important;
+      text-align: right;
+      direction: rtl;
+      justify-content: right;
+
+    }
+
+    .rw-conversation-container .rw-message {
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    .rw-conversation-container .rw-message-text {
+      font-family: 'Tajawal', sans-serif;
+      text-align: right;
+      direction: rtl;
+    }
+    .rw-link {
+      text-align: left;
+      direction: ltr;
+    }
+
+    .rw-conversation-container .rw-sender .rw-new-message {
+      font-family: 'Tajawal', sans-serif;
+      text-align: right;
+      direction: rtl;
+      padding-right: 25px;
+
+    }
+
+    .rw-sender .rw-send {
+      display: none;
+
+    }
+
+    .rw-launcher{
+      background: rgb(6,119,142);
+      background: linear-gradient(90deg, rgba(6,119,142,1) 37%, rgba(117,143,78,1) 100%) !important;
+    }
+
+    
+
+  </style> 
+  <!-- <link rel="stylesheet" type="text/css" href="static/chatbot_style.css"> -->
+</head>
+<body>
+  <script>!(function () {
+    let e = document.createElement("script"),
+      t = document.head || document.getElementsByTagName("head")[0];
+    (e.src =
+      "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
+      (e.async = !0),
+      (e.onload = () => {
+        window.WebChat.default(
+          {
+            customData: { language: "en", "channel": "web" },
+            socketUrl: "http://10.10.42.36:5005",
+            title: "المساعد الذكي",
+            subtitle: "إطلاق تجريبي",
+            inputTextFieldHint: "ادخل النص هنا",
+            params: {"storage": "session"}
+            // add other props here
+          },
+          null
+        );
+      }),
+      t.insertBefore(e, t.firstChild);
+  })();
+  </script>
+  </body>
+  </html>
